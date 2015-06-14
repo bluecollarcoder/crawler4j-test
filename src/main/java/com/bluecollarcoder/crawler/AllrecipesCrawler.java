@@ -44,7 +44,8 @@ public class AllrecipesCrawler extends WebCrawler {
             
             Document doc = Jsoup.parse(html);
             String itemTitle = doc.select("#itemTitle").text();
-            Recipe recipe = new Recipe(itemTitle, page.getWebURL().getURL());
+            String itemPhoto = doc.select("#imgPhoto").attr("src");
+            Recipe recipe = new Recipe(itemTitle, page.getWebURL().getURL(), itemPhoto);
             
             for (Element ingredient : doc.select(".ingredient-wrap #liIngredient")) {
                 String amount = ingredient.select("#lblIngAmount").text();

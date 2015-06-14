@@ -9,6 +9,7 @@ create table recipes (
     recipe_id serial primary key,
     recipe_name varchar(1024) not null,
     recipe_url varchar(1024) not null,
+    recipe_photo varchar(1024) null,
     created timestamp not null DEFAULT current_timestamp
 );
 
@@ -19,7 +20,7 @@ create table ingredients (
 );
 
 create table ingredient_amount (
-    recipe_id integer not null REFERENCES recipes,
-    ingredient_id integer not null REFERENCES ingredients,
+    recipe_id integer not null REFERENCES recipes ON DELETE CASCADE,
+    ingredient_id integer not null REFERENCES ingredients ON DELETE CASCADE,
     amount varchar(1024) not null
 );

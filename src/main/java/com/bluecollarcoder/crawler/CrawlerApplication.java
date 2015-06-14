@@ -29,7 +29,7 @@ public class CrawlerApplication implements CommandLineRunner {
     public void run(String... args) throws Exception {
         CrawlConfig config = new CrawlConfig();
         config.setCrawlStorageFolder("/tmp/crawler4j");
-        config.setPolitenessDelay(1000);
+        config.setPolitenessDelay(2000);
         config.setMaxConnectionsPerHost(1);
         config.setMaxPagesToFetch(10); // Change later
         
